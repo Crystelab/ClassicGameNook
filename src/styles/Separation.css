@@ -1,0 +1,8 @@
+@import 'Colors.css';
+
+.separation hr {
+    background-color: var(--accent1);
+    border: none;
+    height: 10px;
+    margin-top: -1px;
+}

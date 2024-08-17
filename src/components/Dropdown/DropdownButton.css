@@ -1,0 +1,26 @@
+@import '../../styles/Colors.css';
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.2rem;
+    color: var(--text-color);
+}
+
+.navbar .dropdown-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 20px;
+    font-size: 20px;
+}

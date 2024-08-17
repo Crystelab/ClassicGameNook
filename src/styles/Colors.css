@@ -1,0 +1,17 @@
+:root {
+  /* Default Theme */
+  --main-color: #E2CEBB;
+  --background-color: #F8E1E0;
+  --text-color: #474B3E;
+  --accent1: #C97B61;
+  --accent2: #B1BEB5;
+}
+
+body.dark-theme {
+  /* Dark Theme */
+  --main-color: #2E2E2E;
+  --background-color: #1B1B1B;
+  --text-color: #EAEAEA;
+  --accent1: #BB86FC;
+  --accent2: #03DAC6;
+}
