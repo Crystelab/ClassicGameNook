@@ -17,7 +17,7 @@
 }
 
 .navbar .rightSide {
-  flex: 5%;
+  flex: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@
 .navbar a {
   color: var(--text-color);
   text-decoration: none;
-  margin: 20px;
+  margin: 50px;
   font-size: 20px;
 }
 
@@ -37,3 +37,4 @@
   text-decoration: none;
   margin: 20px;
 }
+
