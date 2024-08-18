@@ -1,0 +1,11 @@
+@import 'colors.css';
+@import 'navbar.css';
+@import 'separator.css';
+@import 'dropdown.css';
+
+.logo {
+    width: 90px;
+    color: var(--accent1);
+ }
+
+ 
