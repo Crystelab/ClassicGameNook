@@ -1,0 +1,14 @@
+.about-container {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 20px;
+    margin: 50px auto; /* Center the box horizontally */
+    width: 60%; /* Set the width of the box */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+}
+
+
+.about-container p {
+    margin-bottom: 15px; /* Add space below the paragraphs */
+}

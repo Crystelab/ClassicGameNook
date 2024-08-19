@@ -2,6 +2,7 @@
 @import 'navbar.css';
 @import 'separator.css';
 @import 'dropdown.css';
+@import 'about.css';
 
 .logo {
     width: 90px;
@@ -10,4 +11,13 @@
 
  h1, h2, h3, h4, h5, h6 {
     padding: 30px;
+}
+
+p {
+    padding: 30px;
+    font-size: larger;
+}
+
+a {
+    color: var(--accent2);
 }
