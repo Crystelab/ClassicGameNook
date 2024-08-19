@@ -5,8 +5,14 @@
     </div>
     <div class="rightSide">
         <a href="#">Games</a>
-        <a href="#">About Us</a>
-        <div id="dropdown"></div>
+        <a href="#">About</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">Theme <i class="arrow down"></i></button>
+            <div id="myDropdown" class="dropdown-content">
+                <div class='dropdown-item' onclick="onClickTheme('default')">Default</div>
+                <div class='dropdown-item' onclick="onClickTheme('dark')">Dark</div>
+            </div>
+        </div>        
         <a href="#">Log in</a>
     </div>
 </div>

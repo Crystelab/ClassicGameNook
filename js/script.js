@@ -19,5 +19,4 @@ document.addEventListener("DOMContentLoaded", function() {
     loadComponent('navbar', 'html/components/navbar.html');
     loadComponent('separator', 'html/components/separator.html');
     loadComponent('logo-container', 'assets/logo.html'); 
-    loadComponent('dropdown', 'html/components/dropdown.html');
 });

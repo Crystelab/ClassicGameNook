@@ -1,9 +1,11 @@
 var btnTitle = "Theme";
 
 function toggleDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    const dropdown = document.getElementById("myDropdown");
     const arrow = document.querySelector(".dropbtn .arrow");
+
     dropdown.classList.toggle("show");
+
     if (dropdown.classList.contains("show")) {
         arrow.classList.remove("down");
         arrow.classList.add("up");
@@ -13,14 +15,6 @@ function toggleDropdown() {
     }
 }
 
-/*document.addEventListener("DOMContentLoaded", function() {
-    // Set the button's text content to the value of btnTitle
-    var dropdownButton = document.querySelector('.dropbtn');
-    if (dropdownButton) {
-        dropdownButton.textContent = btnTitle;
-    }
-});
-*/
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -31,5 +25,8 @@ window.onclick = function(event) {
                 openDropdown.classList.remove('show');
             }
         }
+        const arrow = document.querySelector(".dropbtn .arrow");
+        arrow.classList.remove("up");
+        arrow.classList.add("down");
     }
 };
