@@ -1,0 +1,67 @@
+.thumbnail {
+    display: inline-block;
+    text-align: center;
+    margin: 10px; 
+    vertical-align: top; 
+}
+.thumbnail-container {
+    position: relative;
+    width: 300px;
+    height: 310px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: var(--main-color);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .grid-container {
+    position: absolute;
+    left: 0;
+    width: 97%;
+    z-index: 0;
+    color: var(--text-color);
+  }
+
+.thumbnail h4 {
+    margin: 0;
+    padding-top: 1px;
+    font-size: larger;
+}
+
+.x-container, .o-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-container svg, .o-container svg {
+    width: 100%;
+    display: block;
+}
+
+.x {
+    height: 70px;
+    color: var(--accent1);
+    padding: 18px;
+ }
+
+.o {
+    height: 70px;
+    color: var(--accent2);
+    padding: 18px;
+ }
+
+ .btnThumbnail{
+    height: 350px;
+    background-color: var(--background-color);
+    border: none;
+ }
+
+ .btnThumbnail:hover {
+    cursor: pointer;
+    background-color: var(--accent1);
+}
