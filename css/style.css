@@ -3,7 +3,13 @@
 @import 'separator.css';
 @import 'dropdown.css';
 @import 'about.css';
-@import 'thumbnail.css';
+@import 'tictactoeThumbnail.css';
+@import 'tictactoe.css';
+
+html, body {
+    height: 100%;
+    width: 100%;
+  }
 
 .logo {
     width: 90px;
@@ -18,8 +24,4 @@
 p {
     padding: 30px;
     font-size: larger;
-}
-
-a {
-    color: var(--accent2);
 }

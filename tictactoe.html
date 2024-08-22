@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classic Game Nook</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
-  </head>
-  <body>
-    <div id="navbar"></div>
-    <div id="separator"></div>
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classic Game Nook</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
+</head>
+<body>
+  <div id="navbar"></div>
+<div id="separator"></div>
 
-    <script src="js/dropdown.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+<div class="tictactoe-container">
+    <div class="status-x-container">
+        <div id="xStatus" class="status-x"></div>
+    </div>
+
+    <div class="game-container">
+        <label for="tictactoeMode">Game Mode:</label>
+        <select id="tictactoeMode" onchange="changeMode()" class="tictactoeMode">
+            <option value="friend">With a friend</option>
+            <option value="solo">Solo</option>
+            <option value="online">Online</option>
+        </select>
+
+        <div class="tictactoeGame">
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+        </div>
+
+        <button class="restart" onclick="restart()">Restart</button>
+    </div>
+
+    <div class="status-o-container">
+        <div id="oStatus" class="status-o"></div>
+    </div>
+</div>
+
+  <script src="js/dropdown.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/tictactoe.js"></script>
+  <script src="js/script.js"></script>
+</body>
 </html>
