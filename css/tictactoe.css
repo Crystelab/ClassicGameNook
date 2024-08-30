@@ -1,13 +1,18 @@
-.tictactoe-container {
-    display: flex;
-    justify-content: space-between; /* Distribute space evenly between the sections */
-    align-items: center;
-    height: 80vh;
-    width: 100%; /* Ensure it takes the full width of the page */
+.tictactoeGame {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: var(--main-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
 }
-
-.status-x-container, .status-o-container, .game-container {
-    flex: 1; /* Make each section take equal space */
+.status-x-container,
+.status-o-container,
+.game-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,22 +29,6 @@
     font-size: 5rem;
     font-weight: bold;
     text-align: right;
-}
-
-.game-container {
-    flex-direction: column;
-}
-
-.tictactoeGame {
-    width: 500px;
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    background-color: var(--main-color);
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .btnTictactoe {
@@ -75,12 +64,12 @@
 }
 
 .tictactoeMode {
-   color: var(--text-color); 
-   background-color: var(--main-color);
-   margin: 20px;
-   margin-top: 0;
-   border: thin solid var(--accent1);
-   cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    margin: 20px;
+    margin-top: 0;
+    border: thin solid var(--accent1);
+    cursor: pointer;
 }
 
 .tictactoeMode:hover {
@@ -93,4 +82,52 @@ option {
 
 select:hover {
     background-color: var(--accent2);
+}
+
+
+.names {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    margin: 50px 0 50px 0;
+    font-size: 3rem;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+img {
+    width: 30px;
+}
+
+
+.btn {
+    font-size: 2rem;
+    width: 100px;
+    height: 100px;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    background-color: rgb(78, 79, 80);
+}
+
+.btn:hover {
+    background-color: rgb(45, 46, 47);
 }

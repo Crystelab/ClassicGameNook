@@ -85,7 +85,7 @@
 }
 
 .dropdown-item:hover {
-    background-color: var(--accent2);
+    background-color: var(--accent1);
     color: var(--text-color);
 }
 

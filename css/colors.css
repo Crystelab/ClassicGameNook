@@ -1,6 +1,6 @@
 :root {
   /* Default Theme */
-  --main-color: #E2CEBB;
+  --main-color: #e6d1be;
   --background-color: #F8E1E0;
   --text-color: #474B3E;
   --accent1: #C97B61;
@@ -14,9 +14,4 @@ body.dark-theme {
   --text-color: #EAEAEA;
   --accent1: #BB86FC;
   --accent2: #03DAC6;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
 }

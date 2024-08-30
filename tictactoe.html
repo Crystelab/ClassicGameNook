@@ -1,52 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classic Game Nook</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
-</head>
-<body>
-  <div id="navbar"></div>
-<div id="separator"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classic Game Nook</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
+  </head>
 
-<div class="tictactoe-container">
-    <div class="status-x-container">
-        <div id="xStatus" class="status-x"></div>
-    </div>
+  <body>
+    <div id="navbar"></div>
+    <div id="separator"></div>
 
-    <div class="game-container">
-        <label for="tictactoeMode">Game Mode:</label>
-        <select id="tictactoeMode" onchange="changeMode()" class="tictactoeMode">
-            <option value="friend">With a friend</option>
-            <option value="solo">Solo</option>
-            <option value="online">Online</option>
-        </select>
+    <div class="container">
+      <h1>Tic-Tac-Toe</h1>
 
+      <div class="names">
+        <p id="userCont">You : <span id="user"></span></p>
+        <p style="position: absolute; right: 0" id="oppNameCont">
+          Opponent : <span id="oppName"></span>
+        </p>
+      </div>
+      <br />
+      <p id="valueCont">You are playing as <span id="value"></span></p>
+      <br />
+      <p id="whosTurn">X's Turn</p>
+      <div>
+        <H3 id="enterName">Enter your name :</H3>
+
+        <input type="text" placeholder="Name" id="name" autocomplete="off" />
+      </div>
+      <button id="find" class="button">Search for a player</button>
+      <img id="loading" src="assets/loading.gif" alt="" />
+
+      <div id="bigcont">
         <div class="tictactoeGame">
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
-            <button class="btnTictactoe" onclick="makeMove(this)"></button>
+          <button id="btn1" class="btnTictactoe"></button>
+          <button id="btn2" class="btnTictactoe"></button>
+          <button id="btn3" class="btnTictactoe"></button>
+          <button id="btn4" class="btnTictactoe"></button>
+          <button id="btn5" class="btnTictactoe"></button>
+          <button id="btn6" class="btnTictactoe"></button>
+          <button id="btn7" class="btnTictactoe"></button>
+          <button id="btn8" class="btnTictactoe"></button>
+          <button id="btn9" class="btnTictactoe"></button>
         </div>
-
-        <button class="restart" onclick="restart()">Restart</button>
+      </div>
     </div>
-
-    <div class="status-o-container">
-        <div id="oStatus" class="status-o"></div>
-    </div>
-</div>
-
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="js/dropdown.js"></script>
   <script src="js/theme.js"></script>
-  <script src="js/tictactoe.js"></script>
   <script src="js/script.js"></script>
-</body>
+
+  <script>
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("bigcont").style.display = "none";
+    document.getElementById("userCont").style.display = "none";
+    document.getElementById("oppNameCont").style.display = "none";
+    document.getElementById("valueCont").style.display = "none";
+    document.getElementById("whosTurn").style.display = "none";
+
+    const socket = io();
+
+    let name;
+    let turn = "X's Turn";
+    let gameActive = true;
+
+    document.getElementById("find").addEventListener("click", function () {
+      name = document.getElementById("name").value;
+      document.getElementById("user").innerText = name;
+      if (!name) {
+        alert("Please enter a name");
+      } else {
+        socket.emit("find", { name: name });
+
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("find").disabled = true;
+      }
+    });
+
+    socket.on("find", (e) => {
+      let allPlayersArray = e.allPlayers;
+      console.log("html", allPlayersArray);
+
+      if (name) {
+        document.getElementById("userCont").style.display = "block";
+        document.getElementById("oppNameCont").style.display = "block";
+        document.getElementById("valueCont").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("name").style.display = "none";
+        document.getElementById("find").style.display = "none";
+        document.getElementById("enterName").style.display = "none";
+        document.getElementById("bigcont").style.display = "block";
+        document.getElementById("whosTurn").style.display = "block";
+        document.getElementById("whosTurn").innerText = "X's Turn";
+      }
+
+      let oppName;
+      let value;
+
+      const foundObject = allPlayersArray.find(
+        (obj) => obj.p1.p1name === name || obj.p2.p2name === name
+      );
+      if (foundObject) {
+        oppName =
+          foundObject.p1.p1name === name
+            ? foundObject.p2.p2name
+            : foundObject.p1.p1name;
+        value =
+          foundObject.p1.p1name === name
+            ? foundObject.p1.p1value
+            : foundObject.p2.p2value;
+
+        document.getElementById("oppName").innerText = oppName;
+        document.getElementById("value").innerText = value;
+      }
+    });
+
+    document.querySelectorAll(".btnTictactoe").forEach((e) => {
+      e.addEventListener("click", function () {
+        let currentTurn = document.getElementById("whosTurn").innerText;
+        let value = document.getElementById("value").innerText;
+
+        if ((value === "X" && currentTurn === "X's Turn") || (value === "O" && currentTurn === "O's Turn") && gameActive) {
+          const svgPath = value === "X" ? "assets/tictactoe/x.html" : "assets/tictactoe/o.html";
+
+          fetch(svgPath)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
+            })
+            .then((svgHtml) => {
+              e.innerHTML = svgHtml;
+              e.setAttribute("data-value", value);
+              e.disabled = true;
+              updateHoverEffect(); // Update hover effect immediately
+            })
+            .catch((error) => {
+              console.error('There has been a problem with your fetch operation:', error);
+            });
+
+          socket.emit("playing", { value: value, id: e.id, name: name });
+        } else {
+          alert("It's not your turn!");
+        }
+      });
+    });
+
+    socket.on("playing", (e) => {
+      if (!gameActive) return; // Prevent further updates if the game is over
+
+      const foundObject = e.allPlayers.find(
+        (obj) => obj.p1.p1name === name || obj.p2.p2name === name
+      );
+
+      if (!foundObject) return;
+
+      let p1id = foundObject.p1.p1move;
+      let p2id = foundObject.p2.p2move;
+      console.log(turn);
+
+      if (turn === "X's Turn" && p1id && gameActive) {
+        const p1Button = document.getElementById(`${p1id}`);
+        fetch("assets/tictactoe/x.html")
+          .then((response) => response.text())
+          .then((svgHtml) => {
+            p1Button.innerHTML = svgHtml;
+            p1Button.setAttribute("data-value", "X");
+            p1Button.disabled = true;
+            check(turn);
+
+            if (gameActive) {
+              turn = "O's Turn";
+              document.getElementById("whosTurn").innerText = turn;
+              updateHoverEffect();
+            }
+          });
+      } else if (turn === "O's Turn" && p2id && gameActive) {
+        const p2Button = document.getElementById(`${p2id}`);
+        fetch("assets/tictactoe/o.html")
+          .then((response) => response.text())
+          .then((svgHtml) => {
+            p2Button.innerHTML = svgHtml;
+            p2Button.setAttribute("data-value", "O");
+            p2Button.disabled = true;
+            check(turn);
+
+            if (gameActive) {
+              turn = "X's Turn";
+              document.getElementById("whosTurn").innerText = turn;
+              updateHoverEffect();
+            }
+          });
+      }
+    });
+
+    function check(lastTurn) {
+      if (checkWinner()) {
+        let winMessage = lastTurn === "X's Turn" ? "X WON !!" : "O WON !!";
+        document.getElementById("whosTurn").innerText = winMessage;
+        gameActive = false;
+        updateHoverEffect(); // Disable hover effect when game ends
+      } else if (isDraw()) {
+        document.getElementById("whosTurn").innerText = "It's a Draw !!";
+        gameActive = false;
+        updateHoverEffect(); // Disable hover effect when game ends
+      }
+    }
+
+    function checkWinner() {
+      const buttons = document.querySelectorAll(".btnTictactoe");
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      return winningCombinations.some((combination) => {
+        const [a, b, c] = combination;
+        return (
+          buttons[a].getAttribute("data-value") !== null &&
+          buttons[a].getAttribute("data-value") ===
+            buttons[b].getAttribute("data-value") &&
+          buttons[a].getAttribute("data-value") ===
+            buttons[c].getAttribute("data-value")
+        );
+      });
+    }
+
+    function isDraw() {
+      const buttons = document.querySelectorAll(".btnTictactoe");
+      return [...buttons].every(
+        (button) => button.getAttribute("data-value") !== null
+      );
+    }
+
+    function updateHoverEffect() {
+      const buttons = document.querySelectorAll(".btnTictactoe");
+      buttons.forEach((button) => {
+        button.classList.remove("hover-x", "hover-o");
+        if (button.innerHTML === "" && gameActive) {
+          button.classList.add(turn === "X's Turn" ? "hover-x" : "hover-o");
+        }
+        // Disable click and hover if the game is over or the button already has a value
+        if (button.getAttribute("data-value") !== null || !gameActive) {
+          button.classList.remove("hover-x", "hover-o");
+          button.disabled = true;
+        }
+      });
+    }
+</script>
 </html>

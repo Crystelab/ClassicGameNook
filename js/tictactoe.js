@@ -1,6 +1,6 @@
-let currentPlayer = "X";
+/*let currentPlayer = "X";
 let gameActive = true;
-let mode = document.getElementById("tictactoeMode").value;
+let mode = document.getElementById("tictactoeMode").value;*/
 
 function changeMode() {
   mode = document.getElementById("tictactoeMode").value;
