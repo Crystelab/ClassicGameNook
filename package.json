@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Crystel Abou-Nahed",
   "license": "ISC",
   "description": "",
+  "type": "module",
   "dependencies": {
     "express": "^4.19.2",
     "http": "^0.0.1-security",
