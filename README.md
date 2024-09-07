@@ -9,34 +9,25 @@ This project is a web application that aims to offer a collection of classic gam
 
 - **Node.js**: Ensure you have Node.js installed on your machine.
 - **Nodemon**: If not already installed, you can install Nodemon globally by running:
-  \`\`\`bash
+  
   npm install -g nodemon
-  \`\`\`
+
 
 ### Installation
 
-1. Clone the repository:
-   \`\`\`bash
-   git clone https://github.com/Crystel2002/ClassicGameNook.git
-   cd classic-games-website
-   \`\`\`
+1. Clone the repository
 
 2. Install dependencies:
-   \`\`\`bash
    npm install
-   \`\`\`
+
 
 ### Running the Application
 
 1. Set the Execution Policy (for Windows users):
-   \`\`\`bash
    Set-ExecutionPolicy RemoteSigned -Scope Process
-   \`\`\`
 
 2. Start the server:
-   \`\`\`bash
    nodemon index
-   \`\`\`
 
 > **Note**: Sometimes \`nodemon index\` might not run if you don’t first set the execution policy using the command above.
 
