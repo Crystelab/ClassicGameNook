@@ -1,3 +1,5 @@
+@import '../../css/styles.css';
+
 .tictactoeGame {
     width: 500px;
     height: 500px;
@@ -131,3 +133,26 @@ img {
 .btn:hover {
     background-color: rgb(45, 46, 47);
 }
+
+.x-container, .o-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-container svg, .o-container svg {
+    width: 100%;
+    display: block;
+}
+
+.x {
+    height: 70px;
+    color: var(--accent1);
+ }
+
+.o {
+    height: 70px;
+    color: var(--accent2);
+ }

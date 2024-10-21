@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classic Game Nook</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <div id="navbar"></div>
-    <div id="separator"></div>
-    <h2>Tic-Tac-Toe</h2>
-    <button class="btnThumbnail" onclick="window.location.href='tictactoe.html';">
-        <div class="thumbnail">
-            <div class="thumbnail-container">
-              <div class="grid-container"></div>
-              <div class="x-container"></div>
-              <div class="o-container"></div>
-              <div class="grid-item"></div>
-              <div class="x-container"></div>
-              <div class="x-container"></div>
-              <div class="o-container"></div>
-              <div class="grid-item"></div>
-              <div class="o-container"></div>
-              <div class="x-container"></div>
+    <nav>
+      <div class="left-side">
+        <h3>Classic Game Nook</h2>
+      </div>
+      <div class="right-side">
+        <a class="nav-link" href="/">Games</a>
+        <a class="nav-link" href="/about">About</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            Theme <i class="arrow down"></i>
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <div class="dropdown-item" onclick="onClickTheme('default')">
+              Default
             </div>
-            <h4>Normal</h4>
+            <div class="dropdown-item" onclick="onClickTheme('dark')">Dark</div>
           </div>
-    </button>
-    
-    <script src="js/dropdown.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/script.js"></script>
+        </div>
+        <a class="nav-link" href="#">Log in</a>
+      </div>
+    </nav>
+    <hr>
+
+    <button class="game" onclick="window.location.href='/games/tictactoe'">Tic-Tac-Toe</button>
+
   </body>
+  <script src="../js/dropdown.js"></script>
+  <script src="../js/theme.js"></script>
 </html>

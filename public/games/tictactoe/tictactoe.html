@@ -4,16 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classic Game Nook</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon" />
-  </head>
+    <link rel="stylesheet" href="tictactoe.css" />
+  </head> 
 
   <body>
-    <div id="navbar"></div>
-    <div id="separator"></div>
-
     <div class="container">
-      <h1>Tic-Tac-Toe</h1>
       <select id="tictactoeMode" onchange="changeMode()" class="tictactoeMode">
         <option value="friend">With a friend</option>
         <option value="solo">Solo</option>
@@ -55,8 +50,6 @@
     </div>
   </body>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="js/dropdown.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/tictactoe.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="tictactoe.js"></script>
 </html>

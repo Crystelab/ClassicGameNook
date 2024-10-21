@@ -113,8 +113,8 @@ function online() {
       ) {
         const svgPath =
           value === "X"
-            ? "assets/tictactoe/x.html"
-            : "assets/tictactoe/o.html";
+            ? "x.html"
+            : "o.html";
 
         fetch(svgPath)
           .then((response) => {
@@ -159,7 +159,7 @@ function online() {
 
     if (turn === "X's turn" && p1id && gameActive) {
       const p1Button = document.getElementById(`${p1id}`);
-      fetch("assets/tictactoe/x.html")
+      fetch("x.html")
         .then((response) => response.text())
         .then((svgHtml) => {
           p1Button.innerHTML = svgHtml;
@@ -175,7 +175,7 @@ function online() {
         });
     } else if (turn === "O's turn" && p2id && gameActive) {
       const p2Button = document.getElementById(`${p2id}`);
-      fetch("assets/tictactoe/o.html")
+      fetch("o.html")
         .then((response) => response.text())
         .then((svgHtml) => {
           p2Button.innerHTML = svgHtml;
@@ -199,8 +199,8 @@ function friendOrSolo() {
       if (e.innerHTML === "" && gameActive) {
         const svgPath =
           turn === "X's turn"
-            ? "assets/tictactoe/x.html"
-            : "assets/tictactoe/o.html";
+            ? "x.html"
+            : "o.html";
         fetch(svgPath)
           .then((response) => response.text())
           .then((svgHtml) => {
@@ -331,7 +331,7 @@ function computerMove() {
     const randomButton =
       emptyButtons[Math.floor(Math.random() * emptyButtons.length)];
 
-    fetch("assets/tictactoe/o.html")
+    fetch("o.html")
       .then((response) => response.text())
       .then((svgHtml) => {
         randomButton.innerHTML = svgHtml;
